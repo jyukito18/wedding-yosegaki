@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>インタラクティブ寄せ書き</title>
+  <style>
+    body {
+      background: #f9f9f9;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 30px;
+    }
+    .container {
+      position: relative;
+      width: 800px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .container img {
+      width: 100%;
+      display: block;
+    }
+    .message-link {
+      position: absolute;
+      cursor: pointer;
+    }
+    .popup {
+      display: none;
+      position: absolute;
+      background: white;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      z-index: 10;
+      width: 220px;
+    }
+    .popup strong {
+      color: #cc3366;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <img src="https://via.placeholder.com/800x600?text=%E5%AF%84%E3%81%9B%E6%9B%B8%E3%81%8D%E7%94%BB%E5%83%8F" alt="寄せ書きデザイン">
+
+  <!-- 名前クリックエリア -->
+  <div class="message-link" style="top: 150px; left: 220px; width: 100px; height: 30px;" onclick="showMessage('popup1')"></div>
+  <div class="message-link" style="top: 320px; left: 500px; width: 100px; height: 30px;" onclick="showMessage('popup2')"></div>
+
+  <!-- ポップアップメッセージ -->
+  <div class="popup" id="popup1" style="top: 190px; left: 220px;">
+    <strong>佐藤さんより：</strong><br>
+    ご結婚、本当におめでとうございます！素敵な家庭を築いてくださいね。
+  </div>
+
+  <div class="popup" id="popup2" style="top: 360px; left: 500px;">
+    <strong>鈴木さんより：</strong><br>
+    末永くお幸せに！いつも優しい○○さんらしい素敵な式でした。
+  </div>
+</div>
+
+<script>
+  function showMessage(id) {
+    const el = document.getElementById(id);
+    el.style.display = el.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+
+</body>
+</html>
